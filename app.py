@@ -18,8 +18,12 @@ def homepage():
 def stats(country, beginning_date, ending_date):
     """
     Display COVID-19 statistics for a given country between two dates.
+    Parameters:
+        country (str): The country name or country code.
+        beginning_date (str): The starting date in YYYY-MM-DD format.
+        ending_date (str): The ending date in YYYY-MM-DD format.
     Returns:
-        A message showing total cases and deaths, or an error message if input is invalid.
+        str: A message showing total cases and deaths, or an error message if input is invalid.
     """
     try:
         total_cases, total_deaths = covid_stats.stats(country, beginning_date, ending_date)

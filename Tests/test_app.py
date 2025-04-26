@@ -1,3 +1,5 @@
+"""Unit tests for the Flask COVID-19 app."""
+
 import unittest
 from app import app
 

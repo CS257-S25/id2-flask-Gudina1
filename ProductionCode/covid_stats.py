@@ -9,7 +9,7 @@ def stats(country, beginning_date, ending_date):
     total_cases = 0
     total_deaths = 0
 
-    with open('Data/WHO-COVID-19-global-data.csv', 'r') as file:
+    with open('ProductionCode/WHO-COVID-19-global-data.csv', 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             if row['Country'] == country or row['Country_code'] == country:

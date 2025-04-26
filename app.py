@@ -24,4 +24,4 @@ def stats(country, beginning_date, ending_date):
         return f"Error processing request: {str(e)}"
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True)

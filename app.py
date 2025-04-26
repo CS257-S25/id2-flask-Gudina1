@@ -26,8 +26,8 @@ def stats(country, beginning_date, ending_date):
             f"Total Cases: {total_cases}\n"
             f"Total Deaths: {total_deaths}"
         )
-    except Exception as e:
-        return f"Error processing request: {str(e)}"
+    except (ValueError, KeyError) as e:
+        return f"Error: Invalid input or missing data. {str(e)}"
 
 if __name__ == '__main__':
     app.run(debug=True)

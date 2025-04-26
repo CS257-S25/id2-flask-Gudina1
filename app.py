@@ -1,3 +1,5 @@
+"""Flask app to show COVID-19 statistics."""
+
 from flask import Flask
 from ProductionCode import covid_stats
 
@@ -5,26 +7,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    """
-    Display the homepage with instructions for how to use the app.
-    """
+    """Show homepage instructions."""
     return (
-        "<p>Hello, this is the homepage. To get COVID-19 statistics, use this URL format:</p>"
-        "<p>/stats/(country)/(beginning_date)/(ending_date)</p>"
-        "<p>Example: /stats/US/2020-03-01/2021-03-10</p>"
+        "Hello, this is the homepage.\n\n"
+        "To get COVID-19 statistics, use this URL format:\n"
+        "/stats/<country>/<beginning_date>/<ending_date>\n"
+        "Example:\n"
+        "/stats/USA/2020-03-01/2020-03-10"
     )
 
-@app.route('/stats/<country>/<beginning_date>/<ending_date>', strict_slashes=False)
+@app.route("/stats/<country>/<beginning_date>/<ending_date>", strict_slashes=False)
 def stats(country, beginning_date, ending_date):
-    """
-    Display COVID-19 statistics for a given country between two dates.
-    Parameters:
-        country (str): The country name or country code.
-        beginning_date (str): The starting date in YYYY-MM-DD format.
-        ending_date (str): The ending date in YYYY-MM-DD format.
-    Returns:
-        str: A message showing total cases and deaths, or an error message if input is invalid.
-    """
+    """Show COVID-19 stats for a country between two dates."""
     try:
         total_cases, total_deaths = covid_stats.stats(country, beginning_date, ending_date)
         return (

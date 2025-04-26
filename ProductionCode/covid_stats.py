@@ -25,7 +25,7 @@ def stats(country, beginning_date, ending_date):
 
 def compare (countries, week):
     for country in countries:
-        cases, deaths = stats(country, week, week)
+        cases, deaths = stats(country, week)
         print(f"Total cases in {country} during {week}: {cases}")
         print(f"Total deaths in {country} from {week}: {deaths}\n")
         

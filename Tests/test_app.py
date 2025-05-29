@@ -20,6 +20,11 @@ class TestApp(unittest.TestCase):
         """Test if valid country stats load correctly."""
         response = self.client.get('/stats/US/2020-03-01/2021-03-10')
         self.assertIn(b'COVID-19 stats for US', response.data)
+    def test_invalid_date_format(self):
+        """Test invalid date format."""
+        response = self.client.get('/stats/USA/bad-date/2020-03-02')
+        self.assertIn(b'Error', response.data)
+
 
 if __name__ == '__main__':
     unittest.main()

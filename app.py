@@ -8,21 +8,13 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     """Show homepage instructions."""
-    return '''
-    <!DOCTYPE html>
-    <head>
-        <title>COVID-19 Tracker Home</title>
-    </head>
-    <body>
-        <h1>COVID-19 Tracker</h1>
-        <p>Welcome to the COVID-19 Tracker!</p>
-        <p>To view COVID-19 statistics, use the following URL format:</p>
-        <p>/stats/country/beginning_date/ending_date</p>
-        <p>For example:</p>
-        <p>/stats/USA/2020-03-01/2020-03-10</p>
-    </body>
-    </html>
-    '''
+    return (
+        "Hello, this is the homepage.\n\n"
+        "To get COVID-19 statistics, use this URL format:\n"
+        "/stats/<country>/<beginning_date>/<ending_date>\n"
+        "Example:\n"
+        "/stats/USA/2020-03-01/2020-03-10"
+    )
 
 @app.route("/stats/<country>/<beginning_date>/<ending_date>", strict_slashes=False)
 def stats(country, beginning_date, ending_date):
